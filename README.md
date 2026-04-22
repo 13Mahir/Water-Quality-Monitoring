@@ -39,4 +39,4 @@ A real-time embedded system built with **ESP32** to monitor water quality parame
 3. **MQTT**: The system uses `broker.hivemq.com`.
 
 ---
-Developed by **Mahir Shah** 💀🔥
+Developed by **Group 8** 💀🔥
