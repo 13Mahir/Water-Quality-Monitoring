@@ -1,4 +1,4 @@
-# 💧 Smart Water Quality Monitoring System (IoT)
+# 💧 Smart Water Quality Monitoring System (IoT) 
 
 A real-time embedded system built with **ESP32** to monitor water quality parameters (pH, TDS, and Temperature). The system features local alerts (LCD, LEDs, Buzzer), dual-cloud synchronization (HiveMQ & ThingSpeak), and a modern web-based interactive dashboard.
 
