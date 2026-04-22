@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "author": "Mahir Shah",
+  "editor": "wokwi",
+
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 10, "left": -60 },
+
+    { "type": "wokwi-potentiometer", "id": "ph", "top": -40, "left": -260, "attrs": { "travelLength": "30" } },
+    { "type": "wokwi-potentiometer", "id": "tds", "top": 180, "left": -260, "attrs": { "travelLength": "30" } },
+
+    { "type": "wokwi-ds18b20", "id": "temp", "top": -140, "left": 150 },
+
+    { "type": "wokwi-lcd1602", "id": "lcd", "top": -200, "left": 100, "attrs": { "pins": "i2c" } },
+
+    { "type": "wokwi-buzzer", "id": "buzzer", "top": 150, "left": 180, "attrs": { "volume": "0.1" } },
+
+    { "type": "wokwi-led", "id": "ledRed", "top": 160, "left": -100, "rotate": 270, "attrs": { "color": "red" } },
+    { "type": "wokwi-led", "id": "ledGreen", "top": 160, "left": 80, "rotate": 90, "attrs": { "color": "limegreen" } }
+  ],
+
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+
+    [ "ph:VCC", "esp:3V3", "red", [ "h40", "v-120" ] ],
+    [ "ph:GND", "esp:GND.1", "black", [ "h60", "v100" ] ],
+    [ "ph:SIG", "esp:34", "orange", [ "h100", "v40" ] ],
+
+    [ "tds:VCC", "esp:3V3", "red", [ "h40", "v-120" ] ],
+    [ "tds:GND", "esp:GND.1", "black", [ "h60", "v80" ] ],
+    [ "tds:SIG", "esp:35", "orange", [ "h100", "v0" ] ],
+
+    [ "temp:VCC", "esp:3V3", "red", [ "h-40", "v100" ] ],
+    [ "temp:GND", "esp:GND.2", "black", [ "h-60", "v120" ] ],
+    [ "temp:DQ", "esp:4", "green", [ "h-80", "v60" ] ],
+
+    [ "lcd:VCC", "esp:3V3", "red", [ "v120" ] ],
+    [ "lcd:GND", "esp:GND.3", "black", [ "v140" ] ],
+    [ "lcd:SDA", "esp:21", "blue", [ "h-40", "v60" ] ],
+    [ "lcd:SCL", "esp:22", "gold", [ "h-20", "v40" ] ],
+
+    [ "buzzer:2", "esp:25", "magenta", [ "h-80", "v-40" ] ],
+    [ "buzzer:1", "esp:GND.1", "black", [ "h-60", "v-20" ] ],
+
+    [ "ledRed:A", "esp:26", "red", [ "v-60" ] ],
+    [ "ledRed:C", "esp:GND.1", "black", [ "h20", "v40" ] ],
+
+    [ "ledGreen:A", "esp:27", "limegreen", [ "v-60" ] ],
+    [ "ledGreen:C", "esp:GND.2", "black", [ "h-20", "v40" ] ]
+  ],
+
+  "dependencies": {}
+}

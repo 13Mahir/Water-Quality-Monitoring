@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Water Quality Monitoring System</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <h1>💧 Smart Water Quality Monitoring</h1>
+            <div id="status-indicator" class="status-safe">SAFE</div>
+        </header>
+
+        <div class="main-content">
+            <div class="metrics-grid">
+                <div class="metric-card" id="temp-card">
+                    <h3>Temperature</h3>
+                    <div class="value" id="temp-val">-- °C</div>
+                    <div class="sub-label">Nominal: 10 - 32 °C</div>
+                </div>
+                <div class="metric-card" id="ph-card">
+                    <h3>pH Level</h3>
+                    <div class="value" id="ph-val">--</div>
+                    <div class="sub-label">Nominal: 6.5 - 8.5</div>
+                </div>
+                <div class="metric-card" id="tds-card">
+                    <h3>TDS (Dissolved Solids)</h3>
+                    <div class="value" id="tds-val">-- ppm</div>
+                    <div class="sub-label">Limit: <span id="display-tds-limit">500</span> ppm</div>
+                </div>
+            </div>
+
+            <div class="charts-section">
+                <h2>Real-Time Analysis</h2>
+                <div class="chart-container">
+                    <canvas id="historyChart"></canvas>
+                </div>
+            </div>
+
+            <div class="control-panel">
+                <h2>🎛️ System Control Panel</h2>
+                <div class="controls">
+                    <div class="btn-group">
+                        <button id="btn-buzzer" class="btn btn-primary" onclick="toggleBuzzer()">Force Buzzer: OFF</button>
+                        <button id="btn-led" class="btn btn-primary" onclick="toggleLED()">Force Alert LED: OFF</button>
+                    </div>
+                    <div class="threshold-control">
+                        <label>Adjust TDS Limit (ppm)<br><b><span id="tds-limit-val">500</span></b></label>
+                        <input type="range" id="tds-slider" min="100" max="1000" step="50" value="500" onchange="updateThreshold()">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

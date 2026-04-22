@@ -1,0 +1,16 @@
+# PlatformIO
+.pio
+.pioenvs
+.piolibdeps
+.clang_complete
+.gcc-flags.json
+# VS Code
+.vscode/
+# OS Files
+.DS_Store
+Thumbs.db
+# Artifacts
+walkthrough.md
+implementation_plan.md
+task.md
+ppt_outline.md
